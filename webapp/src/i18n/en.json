@@ -1,0 +1,131 @@
+{
+   "title": "UZEDO",
+   "footer":"Logica Businessa. All rights reserved.",
+   "find": "Find",
+   "nav":{
+      "menu":{
+         "home":"Home",
+         "doc": "Documents",
+         "orgs":"Organizations",
+         "settings": "Settings",
+         "logout": "Sign out",
+
+         "admin": {
+            "main": "Administration",
+            "health": "Health",
+            "configuration": "Configuration",
+            "logs": "Logs",
+            "audit": "Audit"
+         }
+      }
+   },
+
+   "entity": {
+      "action": {
+         "view": "View",
+         "edit": "Edit",
+         "delete": "Delete",
+         "restore": "Restore",
+         "close": "Close",
+         "save": "Save",
+         "cancel": "Cancel",
+         "back": "Back",
+         "add": "Append"
+      },
+      "validation": {
+         "required": "The field value is required",
+         "number": "This field should be a number",
+         "inn": "INN accepts 10 or 12 digits only",
+         "kpp": "KPP accepts 9 digits only",
+         "ogrn": "OGRN accepts 13 or 15 digits only",
+         "doc": {
+            "name": {
+               "maxLength" : "Maximum length: 256"
+            }
+         }
+      },
+      "delete": {
+         "title": "Deletion Confirmation"
+      },
+      "restore": {
+         "title": "Restore Confirmation"
+      }
+   },
+   "doc": {
+      "title": "Document",
+      "status": "Status",
+      "type": "Type",
+      "dateUpdated": "Date Updated",
+      "fileName": "File name:",
+      "type": "Type:",
+      "selectType": "Select document type",
+      "comment": "Comment:",
+      "description": "Description:",
+      "name": "Name:",
+      "create": "Create",
+      "view": "View",
+      "sign": "Sign",
+      "cancel": "Cancel",
+      "upload": "Upload",
+      "remove": "Remove",
+      "ok": "Ok",
+      "chooseFile": "Прикрепить файл",
+      "uploader": {
+         "fileName": "File Name",
+         "fileSize": "File Size (Bytes)"
+      }
+   },
+   "documentController":{
+      "save": {
+         "success": "Document saved successful"
+      }
+   },
+   "buttons": {
+      "save": "Save",
+      "create": "Create",
+      "delete": "Delete",
+      "selectFile": "Select File"
+   },
+   "settings": {
+      "title": "Settings",
+      "operators": {
+         "select": "Choose active operator",
+         "inn": "INN",
+         "code": "Code",
+         "authType": "Authentication Type",
+         "authTypes": {
+            "SMS": "SMS",
+            "Certificate": "Certificate",
+            "LoginPassword": "Login and Password",
+            "None": "None"
+         },
+         "test": "Test"
+      }
+   },
+
+   "csp": {
+      "certDialog": {
+         "title": "Select Certificate"
+      },
+      "cert": {
+         "subject": "Subject",
+         "issuer": "Issuer",
+         "start": "Valid From",
+         "expire": "Valid To",
+         "container": "Container",
+         "period": "Active Period"
+      },
+      "auth":{
+         "success": "Successful authentication",
+         "unknown_method": "Unsupported authentication type"
+      },
+      "decrypt_error": "Decryption error {{description}}"
+   },
+
+   "error":{
+      "NO_RESPONSE": "No response from server",
+      "INTERNAL_SERVER_ERROR": "Server Error. {description}",
+      "JMIMEMAGIC_EXCEPTION": "Determine the type of investments error",
+      "404": "Address unknown"
+   }
+}

@@ -1,0 +1,78 @@
+<nav class="navbar navbar-default" role="navigation" ng-cloak>
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand logo" href="#/">
+                <img class="logo-img" src="/images/logo-jhipster.png"/>
+                <span translate="title"></span> <span class="navbar-version">v{{vm.VERSION}}</span>
+            </a>
+        </div>
+        <div ng-switch="vm.isAuthenticated">
+            <ul class="nav navbar-nav navbar-right">
+                <li ui-sref-active="active">
+                    <a ui-sref="home" ng-click="vm.collapseNavbar()" href="">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="hidden-sm" translate="nav.menu.home">Home</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="docList" ng-click="vm.collapseNavbar()" href="">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="hidden-sm" translate="nav.menu.doc">Doc</span>
+                    </a>
+                </li>
+
+                <li ui-sref-active="active">
+                    <a ui-sref="org" ng-click="vm.collapseNavbar()" href="">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="hidden-sm" translate="nav.menu.orgs">Organizations</span>
+                    </a>
+                </li>
+
+                <li ui-sref-active="active">
+                    <a ui-sref="settings" ng-click="vm.collapseNavbar()" href="">
+                        <span class="glyphicon glyphicon-cog"></span>
+                        <span class="hidden-sm" translate="nav.menu.settings">Settings</span>
+                    </a>
+                </li>
+
+
+                <li ng-class="{active: vm.$state.includes('admin')}"  ng-show="vm.user.roles.indexOf('ADMIN')>-1" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-tower"></span>
+                            <span class="hidden-sm" translate="nav.menu.admin.main">Administration</span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="audit" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <span translate="nav.menu.admin.audit">Audit</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="health" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-heart"></span>&nbsp;
+                                <span translate="nav.menu.admin.health">Health</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="config" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                                <span translate="nav.menu.admin.configuration">Configuration</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li ng-switch-when="true" class="pointer">
+                    <a href="logout" id="logout">
+                        <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                        <span translate="nav.menu.logout">Sign out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
