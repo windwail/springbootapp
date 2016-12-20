@@ -23,9 +23,7 @@
     "angular-file-upload": "^2.4.0",
     "angular-ui-select": "^0.19.6",
     "angular-sanitize": "1.5.5",
-    "sir-accordion": "1.2.1"
-  },
-  "devDependencies": {
+    "sir-accordion": "1.2.1",
     "angular-mocks": "1.5.5"
   },
   "overrides": {

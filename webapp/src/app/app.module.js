@@ -1,18 +1,14 @@
 (function() {
-	'use strict';
 
-	angular.module('uzedoApp',[
-			'pascalprecht.translate',
-			'ngResource',
-			'ui.bootstrap',
-			'ui.bootstrap.datepickerPopup',
-			'ui.router',
-			'ngCacheBuster',
-			'ngCookies',
-			'angularFileUpload',
-        	'ui.select',
-        	'ngSanitize',
-			'sir-accordion'
-		]);
+	angular.module("uzedoApp", [])
+		.controller('MyCoolController',function($scope, $http) {
+
+			$scope.data = "Me";
+
+			$http.get('/customers').then(function(response) {
+				$scope.data = response.data;
+			});
+
+		});
 
 })();

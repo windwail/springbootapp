@@ -15,47 +15,18 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        './src/vendor/vendor.js',
+        './src/bower_components/angular/angular.js',
+        './src/bower_components/angular-resource/angular-resource.js',
+        './src/bower_components/angular-mocks/angular-mocks.js',
+
         './src/app/app.module.js',
-        './src/app/layouts/navbar/navbar.controller.js',
-        './src/app/entities/content/content.service.js',
-        './src/app/entities/doc/doc.state.js',
-        './src/app/entities/doc/doc.service.js',
-        './src/app/entities/doc/doc.controller.js',
-        './src/app/entities/doc/doc-list.state.js',
-        './src/app/entities/doc/doc-list.controller.js',
-        './src/app/entities/user/user.service.js',
-        './src/app/entities/operator/operator.service.js',
-        './src/app/components/alert/alert.service.js',
-        './src/app/components/alert/alert.component.js',
-        './src/app/components/alert/alert-error.component.js',
-        './src/app/settings/settings.state.js',
-        './src/app/settings/settings.service.js',
-        './src/app/settings/settings.controller.js',
-        './src/app/home/home.state.js',
-        './src/app/home/home.controller.js',
-        './src/app/services/operator-auth.service.js',
-        './src/app/interceptors/notification.interceptor.js',
-        './src/app/interceptors/errorhandler.interceptor.js',
-        './src/app/csp/csp.service.js',
-        './src/app/csp/csp.plugin.service.js',
-        './src/app/csp/cert-dialog.controller.js',
-        './src/app/config/uib-pagination.config.js',
-        './src/app/config/translation.config.js',
-        './src/app/config/http.config.js',
-        './src/app/config/compile.config.js',
-        './src/app/app.state.js',
-        './src/app/app.constants.js',
+        './src/app/entities/experiment/experiment.controller.js',
 
         './test/javascript/jasmine/**/*.js'
     ],
 
 
-    // list of files to exclude
-    exclude: [
-      './src/app/**/*.async.js',
-        './src/test/javascript/e2e/**/*.js'
-    ],
+
 
 
     // preprocess matching files before serving them to the browser
