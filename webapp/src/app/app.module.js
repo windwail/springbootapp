@@ -5,7 +5,8 @@
 
 			$scope.data = "Me";
 
-			$http.get('/customers').then(function(response) {
+			$http.get('/customers?some=shit').then(function(response) {
+				console.log(response.data);
 				$scope.data = response.data;
 			});
 

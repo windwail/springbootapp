@@ -22,7 +22,7 @@ var exec = require('child_process').exec;
 
 var linuxPath = './node_modules/protractor/node_modules/webdriver-manager/selenium/';
 var winPath = 'node_modules/protractor/node_modules/webdriver-manager/selenium/';
-var linuxExec = 'node/node node_modules/protractor/bin/webdriver-manager update --proxy http://172.28.0.66:8080';
+var linuxExec = 'node node_modules/protractor/bin/webdriver-manager update --proxy http://172.28.0.66:8080';
 var winExec = 'node\\node node_modules\\protractor\\bin\\webdriver-manager update --proxy http://172.28.0.66:8080';
 
 function getDirectoryPath() {
@@ -362,7 +362,26 @@ gulp.task('platform', function(done) {
 
 // Setting up the test task
 gulp.task('protractor-chrome', ['generate-protractor-config','webserver'], function(done) {
-    var args = ['--baseUrl', 'http://127.0.0.1:8000'];
+    var args = ['--baseUrl', 'http://localhost:8000'];
+    gulp.src(["./test/javascript/e2e/*.js"])
+        .pipe(protractor({
+            configFile: "protractor.conf.js",
+            args: args
+        }))
+        .on('error', function(e) {
+            console.log("ERROR!!!");
+            //http.request('http://localhost:8000/_kill_').on('close', done).end();
+            throw e; })
+        .on('end', function(e) {
+            console.log("SUCCESS!!!");
+            //http.request('http://localhost:8000/_kill_').on('close', done).end();
+            done();
+        });
+});
+
+// Setting up the test task
+gulp.task('protractor', ['generate-protractor-config'], function(done) {
+    var args = ['--baseUrl', 'http://localhost:8090'];
     gulp.src(["./test/javascript/e2e/*.js"])
         .pipe(protractor({
             configFile: "protractor.conf.js",

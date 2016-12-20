@@ -58,7 +58,7 @@
     "gutil": "^1.6.4",
     "jasmine-core": "2.4.1",
     "jasmine-reporters": "2.1.1",
-    "jasmine-spec-reporter": "^2.4.0",
+    "jasmine-spec-reporter": "^2.7.0",
     "jshint-stylish": "2.2.1",
     "karma": "=0.13.18",
     "karma-chrome-launcher": "1.0.1",
