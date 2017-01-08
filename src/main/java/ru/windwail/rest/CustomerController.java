@@ -28,4 +28,17 @@ public class CustomerController {
 
         return customers;
     }
+
+    @RequestMapping(value = "/data", method = RequestMethod.GET, produces = "application/json")
+    public List<String> data() {
+        List<String> data = new ArrayList<>();
+
+        data.add("This");
+        data.add("data");
+        data.add("is");
+        data.add("from");
+        data.add("server!");
+
+        return data;
+    }
 }
