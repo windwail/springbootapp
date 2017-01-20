@@ -10,14 +10,14 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
+@Profile("!test")
 public class SpringMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-        //registry
-        //        .addResourceHandler("/**")
-        //        .addResourceLocations("file:./webapp/src/");
-
+        registry
+                .addResourceHandler("/**")
+                .addResourceLocations("file:./webapp/src/", "/WEB-INF/classes/static/");
 
     }
 
@@ -25,11 +25,5 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("redirect:/index.html");
     }
-
-    @Bean
-    ServletRegistrationBean h2servletRegistration(){
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
-        registrationBean.addUrlMappings("/console/*");
-        return registrationBean;
-    }
 }
+
