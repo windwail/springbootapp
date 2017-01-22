@@ -3,6 +3,12 @@
 <head>
     <script src="https://cdn.rawgit.com/konvajs/konva/1.3.0/konva.min.js"></script>
     <meta charset="utf-8">
+
+    <link rel="stylesheet" href="bower_components/jspanel3/source/jquery.jspanel.css"/>
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/cupertino/jquery-ui.css"/>
+
+
+
     <title>Konva Rect Demo</title>
     <style>
         body {
@@ -11,11 +17,51 @@
             overflow: hidden;
             background-color: #F0F0F0;
         }
+
+
+
+
+
     </style>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+    </script>
 </head>
 <body>
-<div id="container"></div>
+<button class="ui-button">Button label</button>
+
+<form method="post">
+    <textarea id="mytextarea">Hello, World!</textarea>
+</form>
+
+
+
+<div id="container" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="bower_components/jquery.ui.touch-punch/dist/jquery.ui.touch-punch.min.js"></script>
+<script src="bower_components/jspanel3/source/jquery.jspanel.min.js"></script>
+<script src="bower_components/tinymce/tinymce.min.js"></script>
+
+
+
 <script>
+
+    function allowDrop(ev) {
+        console.log("recieved:"+window.njDragElement);
+        ev.preventDefault();
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        //var data=ev.dataTransfer.getData("Text");
+        //ev.target.appendChild(document.getElementById(data).cloneNode(true));
+    }
+
     var width = window.innerWidth;
     var height = window.innerHeight;
 
@@ -191,7 +237,16 @@
 
     // add the layer to the stage
     stage.add(layer);
+
+
+
+
+
 </script>
+
+
+
+
 
 </body>
 </html>

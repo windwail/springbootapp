@@ -5,12 +5,15 @@
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
-    <script src="https://cdn.rawgit.com/konvajs/konva/1.2.2/konva.min.js"></script>
 
 
+    <link rel="stylesheet" href="bower_components/jspanel3/source/jquery.jspanel.css"/>
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/cupertino/jquery-ui.css"/>
+    <link rel="stylesheet" href="css/jspanel.css"/>
 
     <meta charset="utf-8">
-    <title>Konva Drag and Drop Demo</title>
+    <title>NJEditor</title>
+
     <style>
         body {
             margin: 0;
@@ -22,29 +25,23 @@
         #container {
             float: left;
         }
-        #nav {
-            width: 100%;
-            height: 30px;
-            background: #03a9f4
-        }
-        #props {
-            position: fixed;
-            top: 0px;
-            right: 0px;
-            bottom: 0px;
-            width: 100px;
-            background: #03a9f4;
-        }
     </style>
+
+
 </head>
 <body >
-<div id="nav">Navigation and so on</div>
-<div id="container"></div>
-<div id="props">
+<div id="container" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
 
-    <button id="save" onclick="NJ.saveToServer()">save</button>
+<!-- bower:js -->
+<!-- endinject -->
 
-</div>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="bower_components/jquery.ui.touch-punch/dist/jquery.ui.touch-punch.min.js"></script>
+<script src="bower_components/jspanel3/source/jquery.jspanel.min.js"></script>
+<script src="bower_components/tinymce/tinymce.min.js"></script>
+<script src="bower_components/konva/konva.min.js"></script>
+
 <script src="./app.js"></script>
 <script src="./resizable-rect.js"></script>
 <script src="./screen.js"></script>
@@ -54,11 +51,74 @@
 
     $(function() {
 
-        new NJ.NJMenu();
+        //new NJ.NJMenu();
         new NJ.NJScreen();
 
+        function openPanels() {
+            $.jsPanel({
+                selector:      "#njPalette",
+                position:      "center",
+                title:         "Theme light",
+                theme:         "danger",
+                contentAjax: 'tools.html',
+                headerControls: {
+                    minimize: 'remove',
+                    maximize: 'remove',
+                    smallify: 'remove'
+                },
+                headerTitle: "Palette",
+                contentSize:     {width: 180, height: 200},
+                position: {
+                    left: 660,
+                    top:  30
+                }
+            });
 
+            $.jsPanel({
+                selector:      "#njProperties",
+                position:      "center",
+                title:         "Theme light",
+                theme:         "danger",
+                content: '<div id="nj-properties-div">Goo</div>',
+                headerControls: {
+                    minimize: 'remove',
+                    maximize: 'remove',
+                    smallify: 'remove'
+                },
+                headerTitle: "Properties",
+                contentSize:     {width: 180, height: 300},
+                position: {
+                    left: 660,
+                    top:  300
+                }
+            });
+
+        }
+
+        openPanels();
     });
+
+    function allowDrop(ev) {
+        console.log("recieved:"+window.njDragElement);
+        ev.preventDefault();
+    }
+
+    function drop(ev) {
+
+
+        switch (window.njDragElement) {
+            case 'button':
+                new NJ.NJResizableRect(ev.clientX, ev.clientY);
+                break;
+            case '':
+                break;
+            case '':
+                break;
+        };
+
+        window.njDragElement = undefined;
+        ev.preventDefault();
+    }
 
 </script>
 

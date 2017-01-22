@@ -1,0 +1,19 @@
+.jsPanel-theme-danger {
+    background-color: #264d73;
+    border-color: #f4511e; }
+
+.jsPanel-theme-danger > .jsPanel-hdr * {
+    color: #ffffff; }
+.jsPanel-theme-danger > .jsPanel-hdr .jsPanel-hdr-toolbar {
+    border-top: 1px solid #ff7043; }
+.jsPanel-theme-danger > .jsPanel-hdr .jsPanel-headerbar .jsPanel-controlbar div span:hover {
+    color: #ffab91; }
+
+.jsPanel-theme-danger > .jsPanel-content.jsPanel-content-filled {
+    background-color: #264d73;
+    border-top: 1px solid #ff7043;
+    color: #ffffff; }
+
+.jsPanel-theme-danger > .jsPanel-content.jsPanel-content-filledlight {
+    background-color: #ffccbc;
+    color: #000000; }

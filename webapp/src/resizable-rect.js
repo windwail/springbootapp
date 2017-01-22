@@ -2,31 +2,36 @@
 
     NJ.NJResizableRect = NJResizableRect;
 
-    function NJResizableRect() {
+    function NJResizableRect(dropX, dropY) {
 
         var self = this;
+        var gX = !!dropX ? dropX : 0;
+        var gY = !!dropY ? dropY : 0;
+
 
         var layer = NJ.layer;
 
         this.group = new Konva.Group({
-            x: 0,
-            y: 0,
+            x: gX,
+            y: gY,
             dragDistance: 5,
             draggable: true
         });
 
         layer.add(this.group);
+        
+        var HEIGHT = 50;
+        var WIDTH = 160;
 
         this.rect = new Konva.Rect({
             x: 0,
             y: 0,
-            width: 200,
-            height: 138,
+            width: WIDTH,
+            height: HEIGHT,
             fill: '#00D2FF',
             stroke: 'black',
             strokeWidth: 1,
             draggable: false,
-            cornerRadius: 5,
         });
 
         this.text = new Konva.Text({
@@ -42,9 +47,9 @@
 
         this.group.add(this.text);
         this.addAnchor(0, 0, 'topLeft');
-        this.addAnchor(200, 0, 'topRight');
-        this.addAnchor(200, 138, 'bottomRight');
-        this.addAnchor(0, 138, 'bottomLeft');
+        this.addAnchor(WIDTH, 0, 'topRight');
+        this.addAnchor(WIDTH, HEIGHT, 'bottomRight');
+        this.addAnchor(0, HEIGHT, 'bottomLeft');
 
         this.updateTextPosition();
 
@@ -54,7 +59,7 @@
         });
 
         this.group.on('dragmove', function (evt) {
-            console.log(evt.target.getX());
+            //console.log(evt.target.getX());
         });
 
         this.njUnselect();

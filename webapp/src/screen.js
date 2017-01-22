@@ -8,7 +8,7 @@
         var layer = NJ.layer;
 
         this.group = new Konva.Group({
-            x: 180,
+            x: 30,
             y: 30,
             dragDistance: 5,
             draggable: false
@@ -25,7 +25,6 @@
             stroke: 'black',
             strokeWidth: 1,
             draggable: false,
-            cornerRadius: 5,
         });
 
         this.text = new Konva.Text({

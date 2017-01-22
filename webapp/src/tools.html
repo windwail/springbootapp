@@ -1,0 +1,18 @@
+
+        <table width="100%" align="center" valign="center">
+            <tr><td align="center">
+                <img id="button" src="img/button.png" draggable="true" ondragstart="drag(event)"/>
+            </td></tr>
+            <tr><td align="center">
+                <img id="dropdown" src="img/dropdown.png" draggable="true" ondragstart="drag(event)"/>
+            </td></tr>
+            <tr><td align="center">
+                <img id="input" src="img/input.png" draggable="true" ondragstart="drag(event)"/>
+            </td></tr>
+        </table>
+
+    <script>
+        function drag(ev) {
+            window.njDragElement = ev.target.id;
+        }
+    </script>

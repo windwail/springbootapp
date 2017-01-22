@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPanel - a jQuery Plugin</title>
+    <!-- OPTIONALLY load jQuery UI css (which theme doesn't matter regarding jsPanel) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jspanel3/3.5.0/jquery.jspanel.css"/>
+</head>
+<body>
+asdf
+<!-- Your HTML goes here -->
+
+<!-- loading jQuery -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- OPTIONALLY load jQuery UI and jQuery UI Touch Punch js -->
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="bower_components/jquery.ui.touch-punch/src/jquery.ui.touch-punch.js"></script>
+<!-- loading jsPanel javascript -->
+<script src="bower_components/jspanel3/source/jquery.jspanel.min.js"></script>
+
+<script>
+
+    function openPanel() {
+        $.jsPanel({
+            selector:      "#o-theme",
+            position:      "center",
+            title:         "Theme light",
+            theme:         "lightblue",
+            content:       "<p style='padding:20px;font-weight:bold;'>Just a simple paragraph to see the font color ...</p>"
+        });
+    }
+
+    openPanel();
+
+
+</script>
+
+
+</body>
+</html>

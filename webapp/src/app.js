@@ -34,7 +34,7 @@ var NJEditor = function() {
     window.addEventListener('resize', function (event) {
         self.stage.setWidth(window.innerWidth);
         self.stage.setHeight(window.innerHeight);
-        document.getElementById('props').style.height = window.innerHeight;
+        document.getElementById('container').style.height = window.innerHeight;
     });
 
     this.layer = new Konva.Layer();
@@ -51,6 +51,8 @@ NJEditor.prototype.njSetSelected = function(njElement) {
     if(this.selected) {
         this.selected.njSelect();
     }
+
+    $("#nj-properties-div").empty();
 }
 
 NJEditor.prototype.njUnselect = function() {
@@ -63,6 +65,14 @@ NJEditor.prototype.saveToServer = function() {
 
 
 NJEditor.prototype.initStage = function() {
+
+}
+
+NJEditor.prototype.initPalettePanel = function() {
+
+}
+
+NJEditor.prototype.initPropertiesPanel = function() {
 
 }
 
