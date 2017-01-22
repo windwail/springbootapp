@@ -2,12 +2,13 @@
 
     NJ.NJResizableRect = NJResizableRect;
 
-    function NJResizableRect(dropX, dropY) {
+    function NJResizableRect(dropX, dropY, data) {
 
         var self = this;
         var gX = !!dropX ? dropX : 0;
         var gY = !!dropY ? dropY : 0;
 
+        this.data = data;
 
         var layer = NJ.layer;
 

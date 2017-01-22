@@ -50,9 +50,82 @@ NJEditor.prototype.njSetSelected = function(njElement) {
     this.selected = njElement;
     if(this.selected) {
         this.selected.njSelect();
+
+        var dt = this.selected.data;
+        $("#nj-properties-div").find('tbody').empty();
+
+
+        var tableBody = $("#nj-properties-div").find('tbody');
+
+
+        for(var index in dt) {
+            var v = dt[index];
+
+            // Primitive value
+            if(v !== Object(v)) {
+                tableBody.append($('<tr>')
+                    .append($('<td>')
+                        .append($('<span>')
+                            .attr('src', '')
+                            .text(index)
+                        )
+                    )
+                    .append($('<td>')
+                        .append($('<input>')
+                            .attr('value', v)
+                            .attr('style', "display:table-cell; width:100%;")
+                            .attr('onkeyup', 'NJ.setData("' + index + '",event.target.value)')
+                            .text(v)
+                        )
+                    )
+                );
+            }
+
+
+            if(v === Object(v)) {
+                console.log("OBJEcT");
+
+                tableBody.append($('<tr>')
+                    .append($('<td>')
+                        .append($('<span>')
+                            .attr('src', '')
+                            .text(index)
+                        )
+                    )
+                );
+
+                tableBody.append($('<tr>')
+                        .append($('<td colspan="2">')
+                            .append($('<textarea>')
+                                .attr('value', v)
+                                .attr('style', "display:table-cell; width:100%;")
+                                .attr('onkeyup', 'NJ.setData("' + index + '",event.target.value)')
+                                .text(v.value)
+                            )
+                        )
+                    );
+
+
+
+            }
+        }
     }
 
-    $("#nj-properties-div").empty();
+
+}
+
+NJEditor.prototype.setData = function(fieldName, fieldValue) {
+    if(this.selected) {
+        var field = this.selected.data[fieldName];
+        if(field === Object(field)) {
+            // object;
+
+            this.selected.data[fieldName].value = fieldValue;
+        } else {
+            // primitive;
+            this.selected.data[fieldName] = fieldValue;
+        }
+    }
 }
 
 NJEditor.prototype.njUnselect = function() {

@@ -19,8 +19,8 @@
         this.rect = new Konva.Rect({
             x: 0,
             y: 0,
-            width: 600,
-            height: 800,
+            width: 400,
+            height: 600,
             fill: '#009688',
             stroke: 'black',
             strokeWidth: 1,

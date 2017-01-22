@@ -69,7 +69,7 @@
                 headerTitle: "Palette",
                 contentSize:     {width: 180, height: 200},
                 position: {
-                    left: 660,
+                    left: 460,
                     top:  30
                 }
             });
@@ -79,7 +79,7 @@
                 position:      "center",
                 title:         "Theme light",
                 theme:         "danger",
-                content: '<div id="nj-properties-div">Goo</div>',
+                content: '<table id="nj-properties-div" width="94%" style="margin:3%"><tbody><tr><td>Select widget...</td></tr></tbody></table>',
                 headerControls: {
                     minimize: 'remove',
                     maximize: 'remove',
@@ -88,7 +88,7 @@
                 headerTitle: "Properties",
                 contentSize:     {width: 180, height: 300},
                 position: {
-                    left: 660,
+                    left: 460,
                     top:  300
                 }
             });
@@ -108,7 +108,14 @@
 
         switch (window.njDragElement) {
             case 'button':
-                new NJ.NJResizableRect(ev.clientX, ev.clientY);
+                new NJ.NJResizableRect(ev.clientX, ev.clientY, {
+                    name: 'somename1',
+                    label: 'somelabel1',
+                    onclick: {
+                        type: 'code',
+                        value: ''
+                    }
+                });
                 break;
             case '':
                 break;
